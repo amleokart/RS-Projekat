@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.24695121951219512" layoutX="15.0" layoutY="42.0" orientation="VERTICAL" prefHeight="330.0" prefWidth="569.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: WHITE;">
+               <children>
+                  <Label layoutX="234.0" layoutY="12.0" text="MENU" textFill="#0a0a0a">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #A9A9A9;">
+               <children>
+                  <VBox layoutX="149.0" layoutY="22.0" prefHeight="200.0" prefWidth="278.0">
+                     <children>
+                        <GridPane prefHeight="183.0" prefWidth="278.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.0" minWidth="10.0" prefWidth="278.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="0.0" prefWidth="0.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="btnCustomers" mnemonicParsing="false" onAction="#customers" prefHeight="25.0" prefWidth="278.0" style="-fx-background-color: #696969;" text="Customers" textFill="WHITE" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Button>
+                              <Button fx:id="btnCarRegistration" mnemonicParsing="false" onAction="#carRegistration" prefHeight="25.0" prefWidth="280.0" style="-fx-background-color: #696969;" text="Car database" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Button>
+                              <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#returnCar" prefHeight="25.0" prefWidth="278.0" style="-fx-background-color: #696969;" text="Return" textFill="WHITE" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Button>
+                              <Button fx:id="btnRenting" mnemonicParsing="false" onAction="#renting" prefHeight="25.0" prefWidth="278.0" style="-fx-background-color: #696969;" text="Renting" textFill="WHITE" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Button>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <GridPane layoutX="13.0" layoutY="140.0" prefHeight="90.0" prefWidth="164.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="116.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="84.0" minWidth="10.0" prefWidth="61.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btnBack" alignment="CENTER" mnemonicParsing="false" onAction="#previousWindow" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: #696969;" text="Back" textAlignment="CENTER" textFill="#ffffff" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="359.0" layoutY="147.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="85.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="115.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="44.0" minHeight="2.0" prefHeight="14.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btnExit" alignment="CENTER" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #696969;" text="Exit" textAlignment="CENTER" textFill="#ffffff" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

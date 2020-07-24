@@ -1,0 +1,16 @@
+.invalid {
+    -fx-background-color: red;
+}
+
+#login{
+  -fx-graphic: url("/img/1.png");
+}
+
+.poljeIspravno {
+    -fx-control-inner-background: greenyellow;
+}
+.poljeNijeIspravno {
+    -fx-control-inner-background: lightpink;
+}
+
+
