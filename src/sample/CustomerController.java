@@ -42,19 +42,19 @@ public class CustomerController {
         return customer;
     }
 
-    /*public void clickOk(ActionEvent actionEvent) {
-        boolean sveOk = true;
+    public void clickOk(ActionEvent actionEvent) {
+        boolean correct = true;
 
         if (fieldName.getText().trim().isEmpty()) {
             fieldName.getStyleClass().removeAll("poljeIspravno");
             fieldName.getStyleClass().add("poljeNijeIspravno");
-            sveOk = false;
+            correct = false;
         } else {
             fieldName.getStyleClass().removeAll("poljeNijeIspravno");
             fieldName.getStyleClass().add("poljeIspravno");
         }
 
-        if (!sveOk) return;
+        if (!correct) return;
 
         if (customer == null) customer = new Customer();
         customer.setName(fieldName.getText());
@@ -62,20 +62,14 @@ public class CustomerController {
         customer.setCar(choiceCar.getSelectionModel().getSelectedItem());
         closeWindow();
     }
-*/
-    /*public void clickCancel(ActionEvent actionEvent) {
+
+    public void clickCancel(ActionEvent actionEvent) {
         customer = null;
         closeWindow();
-    }*/
+    }
 
     private void closeWindow() {
         Stage stage = (Stage) fieldName.getScene().getWindow();
         stage.close();
-    }
-
-    public void clickOk(ActionEvent actionEvent) {
-    }
-
-    public void clickCancel(ActionEvent actionEvent) {
     }
 }

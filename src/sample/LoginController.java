@@ -15,16 +15,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class LoginController {
     public PasswordField passwordFld;
     public TextField usernameFld;
-    public Button btnLogin;
-    public Button btnBack;
-    CoverController cover;
-    MenuController menu;
     private CarCustomerDAO dao;
 
     public LoginController() {
@@ -49,7 +46,7 @@ public class LoginController {
     }
 
     public void login(ActionEvent actionEvent) throws SQLException {
-       /* if (usernameFld.getText().isEmpty() || passwordFld.getText().isEmpty()) {
+       if (usernameFld.getText().isEmpty() || passwordFld.getText().isEmpty()) {
 
             if(usernameFld.getText().trim().isEmpty()) {
                 usernameFld.getStyleClass().add("invalid");
@@ -72,7 +69,7 @@ public class LoginController {
 
         String user = usernameFld.getText();
         String password = passwordFld.getText();
-        boolean flag=dao.validate(user,password);
+        boolean flag = dao.validate(user, password);
 
         if (!flag) {
             usernameFld.getStyleClass().add("invalid");
@@ -101,7 +98,20 @@ public class LoginController {
                 e.printStackTrace();
             }
 
-        }*/
+        }
+    }
+
+    public void validate(){
+        if(usernameFld.getText().trim().isEmpty() || !usernameFld.getText().matches("^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)?)$")) {
+            usernameFld.getStyleClass().add("invalid");
+        } else {
+            usernameFld.getStyleClass().removeAll("invalid");
+        }
+        if(passwordFld.getText().trim().isEmpty()|| !passwordFld.getText().matches("^([A-Z][a-z]+([ ]?[a-z]?['-]?[A-Z][a-z]+)?)$")) {
+            passwordFld.getStyleClass().add("invalid");
+        } else {
+            passwordFld.getStyleClass().removeAll("invalid");
+        }
     }
 }
 

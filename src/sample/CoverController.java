@@ -14,14 +14,13 @@ import java.io.IOException;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class CoverController {
-    public Button btnNext;
 
     public void next(ActionEvent actionEvent) {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu.fxml"));
-            MenuController loginController = new MenuController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/loginform.fxml"));
+            LoginController loginController = new LoginController();
             loader.setController(loginController);
             root = loader.load();
             stage.setTitle("Login");

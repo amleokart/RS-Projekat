@@ -1,4 +1,8 @@
 BEGIN TRANSACTION;
+CREATE TABLE IF NOT EXISTS `login` (
+	`username`	TEXT,
+	`password`	TEXT);
+INSERT INTO `login` VALUES ('Elma','47ST');
 CREATE TABLE IF NOT EXISTS `car` (
 	`id`	INTEGER,
 	`manufacturer`	TEXT,
@@ -9,8 +13,8 @@ CREATE TABLE IF NOT EXISTS `car` (
 	FOREIGN KEY(`customer`) REFERENCES `customer`,
 	PRIMARY KEY(`id`)
 );
-INSERT INTO `car` VALUES (1,'Skoda','Skoda Fabia','OPIS',40,1);
-INSERT INTO `car` VALUES (2,'Opel','Opel Mocca','OPIS',60,2);
+INSERT INTO `car` VALUES (1,'Skoda','Skoda Fabia','5 Seats, 2 Doors, No Air Conditioning, Manual gearbox',40,1);
+INSERT INTO `car` VALUES (2,'Opel','Opel Mocca','5 Seats, 4 Doors, Air Conditioning, Manual gearbox',60,2);
 CREATE TABLE IF NOT EXISTS `customer` (
 	`id`	INTEGER,
 	`name`	TEXT,

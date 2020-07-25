@@ -59,7 +59,7 @@
                               <Font size="13.0" />
                            </font></Label>
                         <Button fx:id="rent1Btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rent1" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: #696969;" text="RENT" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="40,50 €" GridPane.rowIndex="3">
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="132.0" text="40 €" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Label>
@@ -114,7 +114,7 @@
                               <Font size="13.0" />
                            </font></Label>
                         <Button fx:id="rent2Btn" mnemonicParsing="false" onAction="#rent2" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #696969;" text="RENT" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="130.0" text="60,64 €" GridPane.rowIndex="3">
+                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="130.0" text="60 €" GridPane.rowIndex="3">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Label>

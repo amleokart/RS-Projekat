@@ -39,7 +39,7 @@
                </font>
             </Label>
             <TextField fx:id="fieldName" GridPane.columnIndex="1" />
-            <Label text="Customer:" textFill="WHITE" GridPane.rowIndex="2">
+            <Label text="Car:" textFill="WHITE" GridPane.rowIndex="2">
                <font>
                   <Font size="15.0" />
                </font>

@@ -6,8 +6,11 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="658.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -16,24 +19,66 @@
             <TableView fx:id="tableViewCars" prefHeight="400.0" prefWidth="454.0" style="-fx-background-color: #DCDCDC;" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="47.0" style="-fx-background-color: #ffffff;" text="ID" />
-                  <TableColumn fx:id="colManufacturer" prefWidth="100.99998474121094" style="-fx-background-color: #ffffff;" text="Manufacturer" />
-                  <TableColumn fx:id="colModel" prefWidth="89.0" style="-fx-background-color: #ffffff;" text="Model" />
-                  <TableColumn fx:id="colDescription" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Description" />
-                  <TableColumn fx:id="colPrice" prefWidth="62.0" style="-fx-background-color: #ffffff;" text="Price" />
-                  <TableColumn fx:id="colGradDrzava" prefWidth="89.0" style="-fx-background-color: #ffffff;" text="Customer" />
+                  <TableColumn fx:id="colManufacturer" prefWidth="86.00001525878906" style="-fx-background-color: #ffffff;" text="Manufacturer" />
+                  <TableColumn fx:id="colModel" prefWidth="60.0" style="-fx-background-color: #ffffff;" text="Model" />
+                  <TableColumn fx:id="colDescription" prefWidth="118.0" style="-fx-background-color: #ffffff;" text="Description" />
+                  <TableColumn fx:id="colPrice" prefWidth="56.0" style="-fx-background-color: #ffffff;" text="Price" />
+                  <TableColumn fx:id="colGradDrzava" prefWidth="111.0" style="-fx-background-color: #ffffff;" text="Customer" />
                </columns>
             </TableView>
          </center>
          <right>
-            <VBox prefHeight="200.0" prefWidth="120.0" spacing="5.0" style="-fx-background-color: #A9A9A9;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="400.0" prefWidth="138.0" spacing="5.0" style="-fx-background-color: #A9A9A9;" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="btnAddCar" mnemonicParsing="false" onAction="#actionAddCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="ADD CAR" textFill="WHITE" />
                   <Button fx:id="btnAddCustomer" mnemonicParsing="false" onAction="#actionAddCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="ADD CUSTOMER" textFill="WHITE" />
                   <Button fx:id="btnEditCar" mnemonicParsing="false" onAction="#actionEditCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EDIT CAR" textFill="WHITE" />
                   <Button fx:id="btnEditCustomer" mnemonicParsing="false" onAction="#actionEditCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EDIT CUSTOMER" textFill="WHITE" />
                   <Button fx:id="btnDeleteCar" mnemonicParsing="false" onAction="#actionDeleteCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="DELETE CAR" textFill="WHITE" />
-                  <Button fx:id="btnBack" mnemonicParsing="false" onAction="#previousWindow" prefWidth="Infinity" style="-fx-background-color: #696969;" text="BACK" textFill="WHITE" />
-                  <Button fx:id="btnExit" mnemonicParsing="false" onAction="#closeWindow" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EXIT" textFill="WHITE" />
+                   <Button fx:id="btnDeleteCustomer" mnemonicParsing="false" onAction="#actionDeleteCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="DELETE CUSTOMER" textFill="WHITE" />
+                   <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="110.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="0.0" prefWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+                  <GridPane prefHeight="91.0" prefWidth="128.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="49.0" minWidth="0.0" prefWidth="0.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="21.0" minHeight="0.0" prefHeight="6.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btnExit" mnemonicParsing="false" onAction="#closeWindow" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: #696969;" text="EXIT" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                        <Button fx:id="btnBack" mnemonicParsing="false" onAction="#previousWindow" prefHeight="31.0" prefWidth="124.0" style="-fx-background-color: #696969;" text="BACK" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
+                     </children>
+                  </GridPane>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

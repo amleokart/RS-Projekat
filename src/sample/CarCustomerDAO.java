@@ -13,7 +13,7 @@ public class CarCustomerDAO {
 
     private PreparedStatement customerFromCarStatment, getCustomerStatment, deleteCustomerStatment, deleteCarsForCustomerStament, findCustomerStatment,
             getCarsStatment, addCarStatment, carIdStatment, addCustomerStatment, customerIdStatment, editCarStatment, getCarStatment,
-            findCarStatment, deleteCarStatment, getCustomersStatment;
+            findCarStatment, deleteCarStatment, getCustomersStatment, loginStatment;
 
     public static CarCustomerDAO getInstance() {
         if (instance == null) instance = new CarCustomerDAO();
@@ -52,6 +52,7 @@ public class CarCustomerDAO {
             addCustomerStatment = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?)");
             customerIdStatment = conn.prepareStatement("SELECT MAX(id)+1 FROM customer");
             editCarStatment = conn.prepareStatement("UPDATE car SET manufacturer=?, model=?, description=?, price=?, customer=? WHERE id=?");
+            loginStatment = conn.prepareStatement("SELECT * FROM login WHERE username=? and password=?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -276,5 +277,19 @@ public class CarCustomerDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean validate(String username, String password) throws SQLException {
+        try {
+            loginStatment.setString(1,username);
+            loginStatment.setString(2,password);
+            ResultSet resultSet = loginStatment.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            }
+
+        } catch (SQLException e) {
+        }
+        return false;
     }
 }

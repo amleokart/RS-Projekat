@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="600.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/style.css" />
     </stylesheets>
@@ -100,7 +100,7 @@
                     </children></AnchorPane>
             </items>
         </SplitPane>
-      <Button layoutX="513.0" layoutY="359.0" mnemonicParsing="false" onAction="#exit2Window" prefHeight="31.0" prefWidth="78.0" style="-fx-background-color: #A9A9A9;" text="Exit" textFill="#fffafa">
+      <Button layoutX="513.0" layoutY="366.0" mnemonicParsing="false" onAction="#exit2Window" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #A9A9A9;" text="Exit" textFill="#fffafa">
          <font>
             <Font size="15.0" />
          </font>

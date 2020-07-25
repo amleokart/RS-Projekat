@@ -3,6 +3,7 @@ package sample;
 //fx:controller="sample.CarCustomerDatabaseController"
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -46,7 +47,7 @@ public class CarCustomerDatabaseController {
         colModel.setCellValueFactory(new PropertyValueFactory("model"));
         colDescription.setCellValueFactory(new PropertyValueFactory("description"));
         colPrice.setCellValueFactory(new PropertyValueFactory("price"));
-        //colGradDrzava.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCustomer().getName()));
+        //colCustomer.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCustomer().getName()));
     }
 
     public void actionAddCar(ActionEvent actionEvent) {
@@ -152,17 +153,41 @@ public class CarCustomerDatabaseController {
         dao = CarCustomerDAO.getInstance();
     }
 
-    public void clickOk(ActionEvent actionEvent) {
-        Platform.exit();
-    }
-
     public void actionEditCustomer(ActionEvent actionEvent) {
     }
 
     public void actionDeleteCustomer(ActionEvent actionEvent) {
+        Car customer = tableViewCars.getSelectionModel().getSelectedItem();
+        if (customer == null) return;
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete confirmation");
+        alert.setHeaderText("Deleting a customer " + customer.getCustomer());
+        alert.setContentText("Are you sure you want to delete " + customer.getCustomer() + "?");
+        alert.setResizable(true);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            dao.deleteCustomer(String.valueOf(customer));
+            listCars.setAll(dao.cars());
+        }
     }
 
     public void previousWindow(ActionEvent actionEvent) {
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu.fxml"));
+            MenuController menuController = new MenuController();
+            loader.setController(menuController);
+            root = loader.load();
+            stage.setTitle("Login");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(true);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void closeWindow(ActionEvent actionEvent) {
