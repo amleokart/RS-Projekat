@@ -16,14 +16,13 @@ public class CustomerController {
     public TextField fieldName;
     public TextField fieldMail;
     public ChoiceBox<Car> choiceCar;
-    public Button btnOk;
-    public Button btnCancel;
     private Customer customer;
+    private Car car;
     private ObservableList<Car> listCars;
 
-    public CustomerController(Customer customer, ArrayList<Car> gradovi) {
+    public CustomerController(Customer customer, ArrayList<Car> cars) {
         this.customer = customer;
-        listCars = FXCollections.observableArrayList(gradovi);
+        listCars = FXCollections.observableArrayList(cars);
     }
 
     @FXML

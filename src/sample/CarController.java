@@ -20,8 +20,6 @@ public class CarController {
     public TextField fieldPrice;
     public ChoiceBox<Customer> choiceCustomer;
     public ObservableList<Customer> listCustomers;
-    public Button btnOk;
-    public Button btnCancel;
     private Car car;
 
     public CarController(Car car, ArrayList<Customer> drzave) {

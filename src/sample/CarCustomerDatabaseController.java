@@ -3,6 +3,7 @@ package sample;
 //fx:controller="sample.CarCustomerDatabaseController"
 
 import javafx.application.Platform;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -101,7 +102,7 @@ public class CarCustomerDatabaseController {
         }
     }
 
-    public void actionEditCar(ActionEvent actionEvent) {
+    /*public void actionEditCar(ActionEvent actionEvent) {
         Car car = tableViewCars.getSelectionModel().getSelectedItem();
         if (car == null) return;
 
@@ -127,7 +128,7 @@ public class CarCustomerDatabaseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     public void actionDeleteCar(ActionEvent actionEvent) {
         Car car = tableViewCars.getSelectionModel().getSelectedItem();
@@ -151,9 +152,6 @@ public class CarCustomerDatabaseController {
         File dbfile = new File("baza.db");
         dbfile.delete();
         dao = CarCustomerDAO.getInstance();
-    }
-
-    public void actionEditCustomer(ActionEvent actionEvent) {
     }
 
     public void actionDeleteCustomer(ActionEvent actionEvent) {
