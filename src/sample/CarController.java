@@ -57,30 +57,30 @@ public class CarController {
         boolean correct = true;
 
         if (fieldManufacturer.getText().trim().isEmpty()) {
-            fieldManufacturer.getStyleClass().removeAll("poljeIspravno");
-            fieldManufacturer.getStyleClass().add("poljeNijeIspravno");
+            fieldManufacturer.getStyleClass().removeAll("correctly");
+            fieldManufacturer.getStyleClass().add("incorrectly");
             correct = false;
         } else {
-            fieldManufacturer.getStyleClass().removeAll("poljeNijeIspravno");
-            fieldManufacturer.getStyleClass().add("poljeIspravno");
+            fieldManufacturer.getStyleClass().removeAll("incorrectly");
+            fieldManufacturer.getStyleClass().add("correctly");
         }
 
         if (fieldModel.getText().trim().isEmpty()) {
-            fieldModel.getStyleClass().removeAll("poljeIspravno");
-            fieldModel.getStyleClass().add("poljeNijeIspravno");
+            fieldModel.getStyleClass().removeAll("correctly");
+            fieldModel.getStyleClass().add("incorrectly");
             correct = false;
         } else {
-            fieldModel.getStyleClass().removeAll("poljeNijeIspravno");
-            fieldModel.getStyleClass().add("poljeIspravno");
+            fieldModel.getStyleClass().removeAll("incorrectly");
+            fieldModel.getStyleClass().add("correctly");
         }
 
         if (fieldDescription.getText().trim().isEmpty()) {
-            fieldDescription.getStyleClass().removeAll("poljeIspravno");
-            fieldDescription.getStyleClass().add("poljeNijeIspravno");
+            fieldDescription.getStyleClass().removeAll("correctly");
+            fieldDescription.getStyleClass().add("incorrectly");
             correct = false;
         } else {
-            fieldDescription.getStyleClass().removeAll("poljeNijeIspravno");
-            fieldDescription.getStyleClass().add("poljeIspravno");
+            fieldDescription.getStyleClass().removeAll("incorrectly");
+            fieldDescription.getStyleClass().add("correctly");
         }
 
         int price = 0;
@@ -89,12 +89,12 @@ public class CarController {
         } catch (NumberFormatException e) {
         }
         if (price <= 0) {
-            fieldPrice.getStyleClass().removeAll("poljeIspravno");
-            fieldPrice.getStyleClass().add("poljeNijeIspravno");
+            fieldPrice.getStyleClass().removeAll("correctly");
+            fieldPrice.getStyleClass().add("incorrectly");
             correct = false;
         } else {
-            fieldPrice.getStyleClass().removeAll("poljeNijeIspravno");
-            fieldPrice.getStyleClass().add("poljeIspravno");
+            fieldPrice.getStyleClass().removeAll("incorrectly");
+            fieldPrice.getStyleClass().add("correctly");
         }
         if (!correct) return;
         if (car == null) car = new Car();

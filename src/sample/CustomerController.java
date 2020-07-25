@@ -45,12 +45,21 @@ public class CustomerController {
         boolean correct = true;
 
         if (fieldName.getText().trim().isEmpty()) {
-            fieldName.getStyleClass().removeAll("poljeIspravno");
-            fieldName.getStyleClass().add("poljeNijeIspravno");
+            fieldName.getStyleClass().removeAll("correctly");
+            fieldName.getStyleClass().add("incorrectly");
             correct = false;
         } else {
-            fieldName.getStyleClass().removeAll("poljeNijeIspravno");
-            fieldName.getStyleClass().add("poljeIspravno");
+            fieldName.getStyleClass().removeAll("correctly");
+            fieldName.getStyleClass().add("incorrectly");
+        }
+
+        if (fieldMail.getText().trim().isEmpty()) {
+            fieldMail.getStyleClass().removeAll("correctly");
+            fieldMail.getStyleClass().add("incorrectly");
+            correct = false;
+        } else {
+            fieldMail.getStyleClass().removeAll("correctly");
+            fieldMail.getStyleClass().add("incorrectly");
         }
 
         if (!correct) return;

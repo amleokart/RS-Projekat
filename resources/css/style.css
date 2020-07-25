@@ -6,10 +6,10 @@
   -fx-graphic: url("/img/1.png");
 }
 
-.poljeIspravno {
+.correctly {
     -fx-control-inner-background: greenyellow;
 }
-.poljeNijeIspravno {
+.incorrectly {
     -fx-control-inner-background: lightpink;
 }
 
