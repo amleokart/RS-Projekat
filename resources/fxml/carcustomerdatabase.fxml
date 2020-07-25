@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="658.0" style="-fx-background-color: #696969;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="29.0" layoutY="23.0" prefHeight="400.0" prefWidth="600.0">
+         <center>
+            <TableView fx:id="tableViewCars" prefHeight="400.0" prefWidth="454.0" style="-fx-background-color: #DCDCDC;" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="colId" prefWidth="47.0" style="-fx-background-color: #ffffff;" text="ID" />
+                  <TableColumn fx:id="colManufacturer" prefWidth="100.99998474121094" style="-fx-background-color: #ffffff;" text="Manufacturer" />
+                  <TableColumn fx:id="colModel" prefWidth="89.0" style="-fx-background-color: #ffffff;" text="Model" />
+                  <TableColumn fx:id="colDescription" prefWidth="90.0" style="-fx-background-color: #ffffff;" text="Description" />
+                  <TableColumn fx:id="colPrice" prefWidth="62.0" style="-fx-background-color: #ffffff;" text="Price" />
+                  <TableColumn fx:id="colGradDrzava" prefWidth="89.0" style="-fx-background-color: #ffffff;" text="Customer" />
+               </columns>
+            </TableView>
+         </center>
+         <right>
+            <VBox prefHeight="200.0" prefWidth="120.0" spacing="5.0" style="-fx-background-color: #A9A9A9;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnAddCar" mnemonicParsing="false" onAction="#actionAddCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="ADD CAR" textFill="WHITE" />
+                  <Button fx:id="btnAddCustomer" mnemonicParsing="false" onAction="#actionAddCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="ADD CUSTOMER" textFill="WHITE" />
+                  <Button fx:id="btnEditCar" mnemonicParsing="false" onAction="#actionEditCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EDIT CAR" textFill="WHITE" />
+                  <Button fx:id="btnEditCustomer" mnemonicParsing="false" onAction="#actionEditCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EDIT CUSTOMER" textFill="WHITE" />
+                  <Button fx:id="btnDeleteCar" mnemonicParsing="false" onAction="#actionDeleteCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="DELETE CAR" textFill="WHITE" />
+                  <Button fx:id="btnBack" mnemonicParsing="false" onAction="#previousWindow" prefWidth="Infinity" style="-fx-background-color: #696969;" text="BACK" textFill="WHITE" />
+                  <Button fx:id="btnExit" mnemonicParsing="false" onAction="#closeWindow" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EXIT" textFill="WHITE" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

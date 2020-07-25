@@ -1,43 +1,28 @@
 package sample;
 
 public class Customer {
-
     private int id;
     private String name;
-    private String surname;
-    private String adress;
-    private int mobile;
-    private String email;
 
-    public Car getCar() {
-        return car;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
-    }
-
-    public Customer(int id, String name, String surname, String adress, int mobile, String email, Car car) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.adress = adress;
-        this.mobile = mobile;
+    public void setEmail(String email) {
         this.email = email;
-        this.car = car;
     }
 
+    private String email;
     private Car car;
 
-    public Customer() {}
-
-    public Customer(int id, String name, String surname, String adress, int mobile, String email) {
+    public Customer(int id, String name, String email, Car car) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
-        this.adress = adress;
-        this.mobile = mobile;
         this.email = email;
+        this.car = car;
+    }
+
+    public Customer() {
     }
 
     public int getId() {
@@ -56,35 +41,14 @@ public class Customer {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public Car getCar() {
+        return car;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setCar(Car car) {
+        this.car = car;
     }
 
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public int getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(int mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    @Override
+    public String toString() { return name; }
 }

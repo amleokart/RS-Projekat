@@ -49,7 +49,7 @@ public class LoginController {
     }
 
     public void login(ActionEvent actionEvent) throws SQLException {
-        if (usernameFld.getText().isEmpty() || passwordFld.getText().isEmpty()) {
+       /* if (usernameFld.getText().isEmpty() || passwordFld.getText().isEmpty()) {
 
             if(usernameFld.getText().trim().isEmpty()) {
                 usernameFld.getStyleClass().add("invalid");
@@ -101,7 +101,7 @@ public class LoginController {
                 e.printStackTrace();
             }
 
-        }
+        }*/
     }
 }
 

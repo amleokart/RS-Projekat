@@ -20,8 +20,8 @@ public class CoverController {
         Stage stage = new Stage();
         Parent root = null;
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/loginform.fxml"));
-            LoginController loginController = new LoginController();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/menu.fxml"));
+            MenuController loginController = new MenuController();
             loader.setController(loginController);
             root = loader.load();
             stage.setTitle("Login");

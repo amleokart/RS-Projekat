@@ -1,10 +1,12 @@
 package sample;
 
-import javafx.application.Platform;
+//fx:controller="sample.CarController"
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -12,33 +14,31 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class CarController {
-
-    public TextField registrationFld;
-    public TextField manufacturerFld;
-    public TextField modelFld;
-    public TextField descriptionFld;
-    public TextField fuelFld;
-    public TextField priceFld;
+    public TextField fieldManufacturer;
+    public TextField fieldModel;
+    public TextField fieldDescription;
+    public TextField fieldPrice;
     public ChoiceBox<Customer> choiceCustomer;
-    public ObservableList<Customer> listCustomer;
+    public ObservableList<Customer> listCustomers;
+    public Button btnOk;
+    public Button btnCancel;
     private Car car;
 
-    public CarController(Car car, ArrayList<Customer> customers) {
+    public CarController(Car car, ArrayList<Customer> drzave) {
         this.car = car;
-        listCustomer = FXCollections.observableArrayList(customers);
+        listCustomers = FXCollections.observableArrayList(drzave);
     }
 
     @FXML
     public void initialize() {
-        choiceCustomer.setItems(listCustomer);
+        choiceCustomer.setItems(listCustomers);
         if (car != null) {
-            manufacturerFld.setText(car.getManufacturer());
-            modelFld.setText(car.getModel());
-            descriptionFld.setText(car.getDescription());
-            fuelFld.setText(car.getFuel());
-            priceFld.setText(Integer.toString(car.getPrice()));
-            for (Customer customer : listCustomer)
-                if (customer.getId() == car.getCustomer_id().getId())
+            fieldManufacturer.setText(car.getManufacturer());
+            fieldModel.setText(car.getModel());
+            fieldDescription.setText(car.getDescription());
+            fieldPrice.setText(Integer.toString(car.getPrice()));
+            for (Customer customer : listCustomers)
+                if (customer.getId() == car.getCustomer().getId())
                     choiceCustomer.getSelectionModel().select(customer);
         } else {
             choiceCustomer.getSelectionModel().selectFirst();
@@ -49,70 +49,63 @@ public class CarController {
         return car;
     }
 
-
-    public void submit(ActionEvent actionEvent) {
-        boolean correct = true;
-
-        if (manufacturerFld.getText().trim().isEmpty()) {
-            manufacturerFld.getStyleClass().removeAll("poljeIspravno");
-            manufacturerFld.getStyleClass().add("poljeNijeIspravno");
-            correct = false;
-        } else {
-            manufacturerFld.getStyleClass().removeAll("poljeNijeIspravno");
-            manufacturerFld.getStyleClass().add("poljeIspravno");
-        }
-
-        if (modelFld.getText().trim().isEmpty()) {
-            modelFld.getStyleClass().removeAll("poljeIspravno");
-            modelFld.getStyleClass().add("poljeNijeIspravno");
-            correct = false;
-        } else {
-            modelFld.getStyleClass().removeAll("poljeNijeIspravno");
-            modelFld.getStyleClass().add("poljeIspravno");
-        }
-
-        if (descriptionFld.getText().trim().isEmpty()) {
-            descriptionFld.getStyleClass().removeAll("poljeIspravno");
-            descriptionFld.getStyleClass().add("poljeNijeIspravno");
-            correct = false;
-        } else {
-            descriptionFld.getStyleClass().removeAll("poljeNijeIspravno");
-            descriptionFld.getStyleClass().add("poljeIspravno");
-        }
-
-        if (fuelFld.getText().trim().isEmpty()) {
-            fuelFld.getStyleClass().removeAll("poljeIspravno");
-            fuelFld.getStyleClass().add("poljeNijeIspravno");
-            correct = false;
-        } else {
-            fuelFld.getStyleClass().removeAll("poljeNijeIspravno");
-            fuelFld.getStyleClass().add("poljeIspravno");
-        }
-
-        if (priceFld.getText().trim().isEmpty()) {
-            priceFld.getStyleClass().removeAll("poljeIspravno");
-            priceFld.getStyleClass().add("poljeNijeIspravno");
-            correct = false;
-        } else {
-            priceFld.getStyleClass().removeAll("poljeNijeIspravno");
-            priceFld.getStyleClass().add("poljeIspravno");
-        }
-
-
-        if (!correct) return;
-
-        if (car == null) car = new Car();
-        car.setManufacturer(manufacturerFld.getText());
-        car.setModel(modelFld.getText());
-        car.setDescription(descriptionFld.getText());
-        car.setFuel(fuelFld.getText());
-        car.setPrice(Integer.parseInt(priceFld.getText()));
-        car.setCustomer_id(choiceCustomer.getValue());
-        Stage stage = (Stage) manufacturerFld.getScene().getWindow();
+    public void clickCancel(ActionEvent actionEvent) {
+        car = null;
+        Stage stage = (Stage) fieldManufacturer.getScene().getWindow();
         stage.close();
     }
 
-    public void cancel(ActionEvent actionEvent) {
-        Platform.exit();
+    public void clickOk(ActionEvent actionEvent) {
+        boolean correct = true;
+
+        if (fieldManufacturer.getText().trim().isEmpty()) {
+            fieldManufacturer.getStyleClass().removeAll("poljeIspravno");
+            fieldManufacturer.getStyleClass().add("poljeNijeIspravno");
+            correct = false;
+        } else {
+            fieldManufacturer.getStyleClass().removeAll("poljeNijeIspravno");
+            fieldManufacturer.getStyleClass().add("poljeIspravno");
+        }
+
+        if (fieldModel.getText().trim().isEmpty()) {
+            fieldModel.getStyleClass().removeAll("poljeIspravno");
+            fieldModel.getStyleClass().add("poljeNijeIspravno");
+            correct = false;
+        } else {
+            fieldModel.getStyleClass().removeAll("poljeNijeIspravno");
+            fieldModel.getStyleClass().add("poljeIspravno");
+        }
+
+        if (fieldDescription.getText().trim().isEmpty()) {
+            fieldDescription.getStyleClass().removeAll("poljeIspravno");
+            fieldDescription.getStyleClass().add("poljeNijeIspravno");
+            correct = false;
+        } else {
+            fieldDescription.getStyleClass().removeAll("poljeNijeIspravno");
+            fieldDescription.getStyleClass().add("poljeIspravno");
+        }
+
+        int price = 0;
+        try {
+            price = Integer.parseInt(fieldPrice.getText());
+        } catch (NumberFormatException e) {
+        }
+        if (price <= 0) {
+            fieldPrice.getStyleClass().removeAll("poljeIspravno");
+            fieldPrice.getStyleClass().add("poljeNijeIspravno");
+            correct = false;
+        } else {
+            fieldPrice.getStyleClass().removeAll("poljeNijeIspravno");
+            fieldPrice.getStyleClass().add("poljeIspravno");
+        }
+        if (!correct) return;
+        if (car == null) car = new Car();
+        car.setManufacturer(fieldManufacturer.getText());
+        car.setModel(fieldModel.getText());
+        car.setDescription(fieldDescription.getText());
+        car.setPrice(Integer.parseInt(fieldPrice.getText()));
+        car.setCustomer(choiceCustomer.getValue());
+        Stage stage = (Stage) fieldManufacturer.getScene().getWindow();
+        stage.close();
     }
 }
