@@ -2,7 +2,7 @@ BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS `login` (
 	`username`	TEXT,
 	`password`	TEXT);
-INSERT INTO `login` VALUES ('elmatrako1','47ST');
+INSERT INTO `login` VALUES ('user','pass');
 CREATE TABLE IF NOT EXISTS `car` (
 	`id`	INTEGER,
 	`manufacturer`	TEXT,

@@ -13,7 +13,7 @@ public class CarCustomerDAO {
 
     private PreparedStatement customerFromCarStatment, getCustomerStatment, deleteCustomerStatment, deleteCarsForCustomerStament, findCustomerStatment,
             getCarsStatment, addCarStatment, carIdStatment, addCustomerStatment, customerIdStatment, editCarStatment, getCarStatment,
-            findCarStatment, deleteCarStatment, getCustomersStatment, loginStatment;
+            findCarStatment, deleteCarStatment, getCustomersStatment,editCustomerStatment, loginStatment;
 
     public static CarCustomerDAO getInstance() {
         if (instance == null) instance = new CarCustomerDAO();
@@ -52,6 +52,7 @@ public class CarCustomerDAO {
             addCustomerStatment = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?)");
             customerIdStatment = conn.prepareStatement("SELECT MAX(id)+1 FROM customer");
             editCarStatment = conn.prepareStatement("UPDATE car SET manufacturer=?, model=?, description=?, price=?, customer=? WHERE id=?");
+            editCustomerStatment = conn.prepareStatement("UPDATE customer SET name=?, email=?, car=? WHERE id=?");
             loginStatment = conn.prepareStatement("SELECT * FROM login WHERE username=? and password=?");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -240,6 +241,18 @@ public class CarCustomerDAO {
             editCarStatment.setInt(6, car.getId());
             editCarStatment.executeUpdate();
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void editCustomer(Customer customer) {
+        try {
+            editCustomerStatment.setString(1, customer.getName());
+            editCustomerStatment.setString(2, customer.getEmail());
+            editCustomerStatment.setInt(3, customer.getCar().getId());
+            editCustomerStatment.setInt(4, customer.getId());
+            editCustomerStatment.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

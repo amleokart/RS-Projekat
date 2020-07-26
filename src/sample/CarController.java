@@ -22,9 +22,9 @@ public class CarController {
     public ObservableList<Customer> listCustomers;
     private Car car;
 
-    public CarController(Car car, ArrayList<Customer> drzave) {
+    public CarController(Car car, ArrayList<Customer> customers) {
         this.car = car;
-        listCustomers = FXCollections.observableArrayList(drzave);
+        listCustomers = FXCollections.observableArrayList(customers);
     }
 
     @FXML
@@ -35,11 +35,11 @@ public class CarController {
             fieldModel.setText(car.getModel());
             fieldDescription.setText(car.getDescription());
             fieldPrice.setText(Integer.toString(car.getPrice()));
-            for (Customer customer : listCustomers)
+            /*for (Customer customer : listCustomers)
                 if (customer.getId() == car.getCustomer().getId())
                     choiceCustomer.getSelectionModel().select(customer);
         } else {
-            choiceCustomer.getSelectionModel().selectFirst();
+            choiceCustomer.getSelectionModel().selectFirst();*/
         }
     }
 

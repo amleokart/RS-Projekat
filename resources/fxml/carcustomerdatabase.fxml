@@ -19,11 +19,10 @@
             <TableView fx:id="tableViewCars" prefHeight="400.0" prefWidth="454.0" style="-fx-background-color: #A9A9A9;" BorderPane.alignment="CENTER">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="47.0" style="-fx-background-color: #DCDCDC;" text="ID" />
-                  <TableColumn fx:id="colManufacturer" prefWidth="86.00001525878906" style="-fx-background-color: #DCDCDC;" text="Manufacturer" />
-                  <TableColumn fx:id="colModel" prefWidth="60.0" style="-fx-background-color: #DCDCDC;" text="Model" />
-                  <TableColumn fx:id="colDescription" prefWidth="118.0" style="-fx-background-color: #DCDCDC;" text="Description" />
-                  <TableColumn fx:id="colPrice" prefWidth="56.0" style="-fx-background-color: #DCDCDC;" text="Price" />
-                  <TableColumn fx:id="colGradDrzava" prefWidth="111.0" style="-fx-background-color: #DCDCDC;" text="Customer" />
+                  <TableColumn fx:id="colManufacturer" prefWidth="165.00001525878906" style="-fx-background-color: #DCDCDC;" text="Manufacturer" />
+                  <TableColumn fx:id="colModel" prefWidth="68.0" style="-fx-background-color: #DCDCDC;" text="Model" />
+                  <TableColumn fx:id="colDescription" prefWidth="105.0" style="-fx-background-color: #DCDCDC;" text="Description" />
+                  <TableColumn fx:id="colPrice" prefWidth="76.0" style="-fx-background-color: #DCDCDC;" text="Price" />
                </columns>
             </TableView>
          </center>
@@ -34,6 +33,8 @@
                   <Button fx:id="btnAddCustomer" mnemonicParsing="false" onAction="#actionAddCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="ADD CUSTOMER" textFill="WHITE" />
                   <Button fx:id="btnDeleteCar" mnemonicParsing="false" onAction="#actionDeleteCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="DELETE CAR" textFill="WHITE" />
                    <Button fx:id="btnDeleteCustomer" mnemonicParsing="false" onAction="#actionDeleteCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="DELETE CUSTOMER" textFill="WHITE" />
+                   <Button fx:id="btnEditCar" mnemonicParsing="false" onAction="#actionEditCar" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EDIT CAR" textFill="WHITE" />
+                   <Button fx:id="btnEditCustomer" mnemonicParsing="false" onAction="#actionEditCustomer" prefWidth="Infinity" style="-fx-background-color: #696969;" text="EDIT CUSTOMER" textFill="WHITE" />
                    <GridPane>
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -56,6 +57,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
+                  <Button fx:id="btnBack" mnemonicParsing="false" onAction="#previousWindow" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: #696969;" text="BACK" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                   <GridPane prefHeight="73.0" prefWidth="128.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
@@ -67,11 +73,7 @@
                       <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btnExit" mnemonicParsing="false" onAction="#closeWindow" prefHeight="32.0" prefWidth="125.0" style="-fx-background-color: #696969;" text="EXIT" textFill="WHITE" GridPane.rowIndex="2">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Button>
-                        <Button fx:id="btnBack" mnemonicParsing="false" onAction="#previousWindow" prefHeight="33.0" prefWidth="124.0" style="-fx-background-color: #696969;" text="BACK" textFill="WHITE">
+                        <Button fx:id="btnExit" mnemonicParsing="false" onAction="#closeWindow" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: #696969;" text="EXIT" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font></Button>

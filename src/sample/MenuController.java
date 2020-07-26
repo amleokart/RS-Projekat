@@ -20,8 +20,8 @@ public class MenuController {
         Parent root = null;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/carcustomerdatabase.fxml"));
-            CarCustomerDatabaseController customerController = new CarCustomerDatabaseController();
-            loader.setController(customerController);
+            CarCustomerDatabaseController carCustomerDatabaseController = new CarCustomerDatabaseController();
+            loader.setController(carCustomerDatabaseController);
             root = loader.load();
             stage.setTitle("Car/Customer database");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));

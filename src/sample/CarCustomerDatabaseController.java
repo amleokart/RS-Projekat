@@ -3,7 +3,6 @@ package sample;
 //fx:controller="sample.CarCustomerDatabaseController"
 
 import javafx.application.Platform;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +16,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
@@ -102,7 +102,7 @@ public class CarCustomerDatabaseController {
         }
     }
 
-    /*public void actionEditCar(ActionEvent actionEvent) {
+    public void actionEditCar(ActionEvent actionEvent) {
         Car car = tableViewCars.getSelectionModel().getSelectedItem();
         if (car == null) return;
 
@@ -119,16 +119,53 @@ public class CarCustomerDatabaseController {
             stage.show();
 
             stage.setOnHiding( event -> {
-                Car noviCar = carController.getCar();
-                if (noviCar != null) {
-                    dao.editCar(noviCar);
+                Car newCar = carController.getCar();
+                if (newCar != null) {
+                    dao.editCar(newCar);
                     listCars.setAll(dao.cars());
                 }
             } );
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }*/
+    }
+
+    public void actionEditCustomer(ActionEvent actionEvent) {
+        Car car = tableViewCars.getSelectionModel().getSelectedItem();
+        if (car == null) return;
+
+        Stage stage = new Stage();
+        Parent root = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/customer.fxml"));
+            CustomerController customerController = new CustomerController(car.getCustomer(), dao.cars());
+            loader.setController(customerController);
+            root = loader.load();
+            stage.setTitle("Edit customer");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(true);
+            stage.show();
+
+            stage.setOnHiding( event -> {
+                Customer customer = customerController.getCustomer();
+                if (customer != null) {
+                    dao.editCustomer(customer);
+                    listCars.setAll(dao.cars());
+                }
+            } );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void resetujBazu() {
+        CarCustomerDAO.removeInstance();
+        File dbfile = new File("baza.db");
+        dbfile.delete();
+        dao = CarCustomerDAO.getInstance();
+    }
+
 
     public void actionDeleteCar(ActionEvent actionEvent) {
         Car car = tableViewCars.getSelectionModel().getSelectedItem();
@@ -147,12 +184,7 @@ public class CarCustomerDatabaseController {
         }
     }
 
-    public void resetujBazu() {
-        CarCustomerDAO.removeInstance();
-        File dbfile = new File("baza.db");
-        dbfile.delete();
-        dao = CarCustomerDAO.getInstance();
-    }
+
 
     public void actionDeleteCustomer(ActionEvent actionEvent) {
         Car customer = tableViewCars.getSelectionModel().getSelectedItem();
@@ -179,7 +211,7 @@ public class CarCustomerDatabaseController {
             MenuController menuController = new MenuController();
             loader.setController(menuController);
             root = loader.load();
-            stage.setTitle("Login");
+            stage.setTitle("Menu");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(true);
             stage.show();
